@@ -13,9 +13,14 @@ rDate=as.Date(SNOWnwt$Date)
 #create variable "Year" from the date
 Year=as.numeric(format(rDate, "%Y"))
 
+SNOWnwt$SWE_mm=SNOWnwt$SWE_in*2.54
+
+SNOWnwt99_2013 = subset(SNOWnwt,Year>1998 & Year<2014)
+#save(SNOWnwt99_2013,file="data/SNOWnwt99_2013.rda")
+
 #calculating annual snow totals
-snowpeaks_ann=tapply(SNOWnwt$SWE_in,Year,max)
-snowsum_ann=tapply(SNOWnwt$SWE_in,Year,sum)
+snowpeaks_ann=tapply(SNOWnwt$SWE_in*2.54,Year,max)
+snowsum_ann=tapply(SNOWnwt$SWE_in*2.54,Year,sum)
 
 
 
@@ -28,9 +33,9 @@ Yind=(min(wateryear):max(wateryear))
 barplot(tapply(SNOWnwt$SWE_in,Year,sum))
 
 #caculate wateryear snow totals
-snowpeaks=tapply(SNOWnwt$SWE_in,wateryear,max)
-snowsum=tapply(SNOWnwt$SWE_in,wateryear,sum)
-prec_acc=tapply(SNOWnwt$PrecAcc_in,wateryear,sum)
+snowpeaks=tapply(SNOWnwt$SWE_in*2.54,wateryear,max)
+snowsum=tapply(SNOWnwt$SWE_in*2.54,wateryear,sum)
+prec_acc=tapply(SNOWnwt$PrecAcc_in*2.54,wateryear,sum)
 
 
 #simple plots
