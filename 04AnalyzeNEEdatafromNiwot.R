@@ -2,7 +2,7 @@
 #Author: davidjpmoore@email.arizona.edu
 #Date: 03/11/2015
 #To Do: create rDate for this file
-load("D:/Dropbox/rProjectsShare/Snow/data/FluxData/USNR1.rda")
+load("data/FluxData/USNR1.rda")
 USNR1 = aggFluxtemp
 #Definitions
 # 1800 seconds per 30minute timestep
@@ -46,6 +46,7 @@ USNR1$GAP1 =factor(USNR1$GAP)
 
 #calculating annual NEE, GPP, RE totals
 NEE_ann=tapply(NEEgm[USNR1$YEAR>1998],USNR1$YEAR[USNR1$YEAR>1998],sum)
+
 
 #from Table 3 of Knowles et al 2014 John F. Knowles, Sean P. Burns, Peter D. Blanken & Russell K. Monson (2014): Fluxes of energy,water, and carbon dioxide from mountain ecosystems at Niwot Ridge, Colorado, Plant Ecology & Diversity, DOI:10.1080/17550874.2014.904950 To link to this article: http://dx.doi.org/10.1080/17550874.2014.904950
 
