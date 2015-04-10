@@ -21,6 +21,10 @@ SMT$hhmm = as.factor(SMT$hhmm)
 # - key: Name of new key column (made from names of data columns)
 # - value: Name of new value column
 # - ...: Names of source columns that contain values
+
+
+listNames = colnames(SMT)
+
 SMT1 <- gather(SMT, Probe_ID, Measurement, SMT$V1A:SMT$T18B)
 #checking the new data frame structure
 str(STM1)
