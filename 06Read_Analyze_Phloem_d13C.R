@@ -5,7 +5,11 @@
 #
 #
 #load data using read table into a dataframe called "iphloem"
-iphloem = read.table("data/13C//Phloem13C_master.csv", na.strings=c('.'), stringsAsFactors=FALSE, head=TRUE, sep=",")
+# iphloem = read.table("data/13C//Phloem13C_master.csv", na.strings=c('.'), stringsAsFactors=FALSE, head=TRUE, sep=",")
+
+#read.table is confused by some of the special characters in the header file. Read.csv does not appear to have this issue so I used it here.
+iphloem = read.csv("data//13c//Phloem13C_master.csv", na.strings=c('.'), stringsAsFactors=FALSE, head=TRUE)
+
 
 #input file asks r to assign data with characters in it as char - NOT FACTORS |stringsAsFactors=FALSE | but Treatment and DOY need to be defines as factors for ANOVA analyses - so we'll designate them as such: 
 iphloem$Treatment=as.factor(iphloem$Treatment)
