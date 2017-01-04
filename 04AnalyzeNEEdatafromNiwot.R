@@ -56,6 +56,10 @@ plot (Knowles2014$SWE_mm,Knowles2014$NEE_gCm2)
 plot (Knowles2014$SWE_mm,NEE_ann[USNR1$YEAR<2013])
 
 
+#Mallory's estimate for GPP
+
+Barnes2015=read.table("data/Mallory_GPP07072015.txt",header=TRUE) 
+
 #GPP and RE are empty for Niwot Ridge
 # GPP_ann=tapply(USNR1$GPP,USNR1$YEAR,sum)
 # RE_ann=tapply(USNR1$RE,USNR1$YEAR,sum)
