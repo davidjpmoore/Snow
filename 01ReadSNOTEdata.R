@@ -4,7 +4,7 @@
 #
 #
 #load data using read table into a dataframe called "SNOWnwt"
-SNOWnwt = read.table("data/SNOTELNiwot Tue Mar 10 2015.txt", head=TRUE, sep=",")
+SNOWnwt = read.table("data/SNOTELNiwot Mon Mar 20 2017.txt", head=TRUE, sep=",")
 #SNOTELNiwot Tue Mar 10 2015.txt was downloaded from SNOTEL site see README file
 
 #asking R to read the date as a date;
