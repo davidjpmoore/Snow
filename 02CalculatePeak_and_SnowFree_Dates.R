@@ -53,4 +53,4 @@ SNOTELsummary =data.frame(Yind,snowpeaks, PrecAcc_in_total, PeakSWEDate, ZeroSWE
 #  SNOTELsummary=SNOTELtotals[keeps]
 #  save(SNOTELsummary,file="data/SNOTELsummary.rda")
 
-
+SNOTELsummary

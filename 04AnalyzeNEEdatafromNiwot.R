@@ -104,8 +104,8 @@ DailyYear= as.numeric(tapply(USNR1_99on$YEAR, USNR1_99on$Date, min, na.rm = TRUE
 
 
 #calculate cummulative sum using dplyr package 
-library(dplyr)
-D= Daily %>% 
+library(dplR)
+D= USNR1_99on %>% 
   group_by(DailyYear) %>%
   mutate(annual.NEEcumsum=cumsum(DailyNEE))
 plot(alp$annual.NEEcumsum)

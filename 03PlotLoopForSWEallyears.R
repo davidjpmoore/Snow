@@ -1,3 +1,11 @@
+#DplR
+library(magrittr)
+library(dplyr)
+
+
+
+
+
 #Annual Plots
 
 SNOTELsummary_flux = SNOTELsummary %>%
@@ -43,9 +51,9 @@ title(("Annual GPP vs Melt Duration"), xlab="Melt Duration (days)",ylab="Annual 
 
 #regression and residual analysis
 Flux.REG = lm(RECO_NT_VUT_MEAN ~ GPP_NT_VUT_MEAN, data = NR1_AnnualRECO)
-Flux.REG$residuals
-
-plot(NR1_AnnualRECO$TIMESTAMP, Flux.REG$residuals, ann=FALSE)
+plot(Flux.REG$residuals)
+check=Flux.REG$residuals
+plot(NR1_AnnualRECO$YEAR, Flux.REG$residuals, ann=FALSE,type="n")
 title(paste("Annual RECO residuals vs Year"),xlab="Year",ylab="Residual Annual Flux")
 
 
@@ -116,6 +124,7 @@ frDate=NR1_DailyRECO$rDate
 fPrecInc_in=SNOWflux$PrecInc_in
 fSWE_in=SNOWflux$SWE_in
 fPrecAcc_in=SNOWflux$PrecAcc_in
+fSWC=FLUXflux$SWC_F_MDS_1
 
 for( i in min(fyear):max(fyear)){
   
@@ -148,15 +157,50 @@ for( i in 2008:2009){
   y1=fPrecAcc_in[fyear==(i)]
   
   plot(y1~x1,ann=FALSE,type="n", ylim=c(0, 35))
-  lines(y1~x1,lwd=2)
-  lines(y2~x1,lwd=2,lty=2)
-  lines(y3~x1,lwd=2,lty=3)
-  lines(y3~x1,lwd=2,col=34)
-  lines(y4~x1,lwd=2,col=27)
-  lines(y5~x1,lwd=2,lty=3, col=27) 
+  lines(y1~x1,lwd=2,lty=3, col="black")
+  lines(y2~x1,lwd=2, col="black")
+  lines(y3~x1,lwd=2,col="red")
+  lines(y4~x1,lwd=2,col="green")
+  lines(y5~x1,lwd=2, col=29) 
   
   title(paste("Snow accumulation & GPP (Green) RECO (RED) in", i),xlab="Date",ylab="Precipitation")
 }
+
+
+
+for( i in 2008:2009){
+  
+  x1=frDate[fyear==(i)]
+  y5=fSWC[fyear==(i)]
+  y4=fGPP_NT_VUT_MEAN[fyear==(i)]
+  y3=fRECO_NT_VUT_MEAN[fyear==(i)]
+  y2=fSWE_in[fyear==(i)]
+  y1=fPrecAcc_in[fyear==(i)]
+  
+  plot(y1~x1,ann=FALSE,type="n", ylim=c(0, 35))
+  lines(y1~x1,lwd=2,lty=3, col="black")
+  lines(y2~x1,lwd=2, col="black")
+  lines(y3~x1,lwd=2,col="red")
+  lines(y4~x1,lwd=2,col="green")
+  lines(y5~x1,lwd=2, col=29) 
+  
+  title(paste("SWE (black) & GPP (Green) RECO (RED), SWC(blue)", i),xlab="Date",ylab="Value")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 FLUXflux2008 = FLUXflux  %>%
   subset(YEAR ==2008) %>%
