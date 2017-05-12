@@ -48,7 +48,7 @@ doyZeroSWE= as.numeric(strftime(ZeroSWEdate, format = "%j")) #convert to Day of 
 
 #Saved 4 columns Yind, PeakSWEdate, ZeroSWEDate and MaxSWE_in(snowpeaks renamed) 
 
-SNOTELsummary =data.frame(Yind,snowpeaks, PrecAcc_in_total, PeakSWEDate, ZeroSWEdate)
+SNOTELsummary =data.frame(Yind,snowpeaks, snowsum_ann, prec_acc, PrecAcc_in_total, PeakSWEDate, ZeroSWEdate)
 # keeps=c("Yind", "PeakSWEDate", "ZeroSWEDate", "MaxSWE_in")
 #  SNOTELsummary=SNOTELtotals[keeps]
 #  save(SNOTELsummary,file="data/SNOTELsummary.rda")
